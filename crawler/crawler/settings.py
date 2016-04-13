@@ -55,6 +55,8 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
     'crawler.spiders.rotate_useragent.RotateUserAgentMiddleware' : 400,
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,
+    'crawler.spiders.rotate_proxy.RotateProxyMiddleware' : 100,
 }
 
 # Enable or disable extensions

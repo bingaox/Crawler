@@ -15,11 +15,13 @@ class CrawlerItem(scrapy.Item):
 
 
 class DoubanBookItem(scrapy.Item):
-    book_title = scrapy.Item()
-    book_link = scrapy.Item()
-    book_comment = scrapy.Item()
-    book_price = scrapy.Item()
+    book_title = scrapy.Field()
+    book_link = scrapy.Field()
+    book_comment = scrapy.Field()
+    book_price = scrapy.Field()
 
+class Next_Url(scrapy.Item):
+    url = scrapy.Field()
 
 class DomzItem(scrapy.Item):
     title = scrapy.Field()
