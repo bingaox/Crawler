@@ -2,3 +2,6 @@
 #
 # Please refer to the documentation for information on how to create and manage
 # your spiders.
+import sys
+reload(sys)                         # 2
+sys.setdefaultencoding('utf-8')     # 3
