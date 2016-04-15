@@ -68,7 +68,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'crawler.pipelines.DoubanBookPipeline': 300,
+   'crawler.pipelines.DoubanBookDBPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

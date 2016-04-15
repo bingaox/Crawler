@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import codecs
 import json
+import sqlite3
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
@@ -24,3 +25,14 @@ class DoubanBookPipeline(object):
     def spider_closed(self,spider):
         self.file.close()
 
+class DoubanBookDBPipeline(object):
+    def __init__(self):
+        self.conn = sqlite3.connect('C:\\Users\\ASUS\\Desktop\\bingo\\DoubanBook')
+        self.cur = self.conn.cursor()
+
+    def process_item(self, item, spider):
+        item = (item['book_title'].decode('utf-8'),item['book_author'].decode('utf-8'),item['book_score'].decode('utf-8'))
+        self.cur.execute("insert into DoubanBook values (?,?,?)",item)
+        self.conn.commit()
+    def spider_closed(self,spider):
+        self.conn.close()
